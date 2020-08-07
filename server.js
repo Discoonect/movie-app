@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 
+const movie = require("./route/movie");
+
 const morgan = require("morgan");
 
 const app = express();

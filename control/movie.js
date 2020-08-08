@@ -26,12 +26,10 @@ exports.getAllMovie = async (req, res, next) => {
 exports.searchMovie = async (req, res, next) => {
   let offset = req.query.offset;
   let title = req.query.q;
-  let query = `select * from movie where title like "%?%" limit ?,25`;
-  let data = [title, offset];
+  let query = `select * from movie where title like "%${title}%" limit ${offset},25`;
 
   try {
-    [rows] = await connection.query(query, data);
-    let count = rows.length;
+    [rows] = await connection.query(query);
     res.status(200).json({ success: true, movie: rows });
   } catch (e) {
     res.status(500).json({ success: false, error: e });

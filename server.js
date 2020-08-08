@@ -14,6 +14,7 @@ app.use(morgan("dev"));
 app.use("/api/v1/movie", movie);
 
 const PORT = process.env.PORT;
+
 app.listen(
   PORT,
   console.log(`Server running in ${process.env.NODE_ENV} node on part ${PORT}`)
